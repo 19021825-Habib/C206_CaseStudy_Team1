@@ -7,7 +7,7 @@
  */
 
 public class Products {
-	// attributes
+	// Attributes
 	private int productID;
 	private String description;
 	private String vendorName;

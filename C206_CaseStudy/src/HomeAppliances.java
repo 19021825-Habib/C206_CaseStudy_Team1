@@ -8,7 +8,7 @@
  */
 
 public class HomeAppliances extends Products {
-	// attributes
+	// Attributes
 	private int warrantyYears;
 
 	// Constructors

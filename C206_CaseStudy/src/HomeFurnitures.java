@@ -7,7 +7,7 @@
  */
 
 public class HomeFurnitures extends Products {
-	// attributes
+	// Attributes
 	private String material;
 
 	// Constructors
