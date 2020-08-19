@@ -10,6 +10,7 @@
  * @author 19015781
  *
  */
+// Testing
 public class Customer {
 
 	/**
