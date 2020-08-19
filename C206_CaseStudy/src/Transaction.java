@@ -8,36 +8,48 @@
  */
 
 public class Transaction {
-	private String id;
+	private int transaction_id;
+	private int customer_id;
+	private String customer_name;
+	private int product_id;
+	private String product_desc;
 	private String actionTaken;
 
-	public Transaction(String id, String actionTaken) {
-		this.id = id;
+
+	public Transaction(int transaction_id, int customer_id, String customer_name, int product_id,
+			String product_desc, String actionTaken) {
+		this.transaction_id = transaction_id;
+		this.customer_id = customer_id;
+		this.customer_name = customer_name;
+		this.product_id = product_id;
+		this.product_desc = product_desc;
 		this.actionTaken = actionTaken;
 	}
 
-
-	public String getId() {
-		return id;
+	public int getTransaction_id() {
+		return transaction_id;
 	}
-
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 
 	public String getActionTaken() {
 		return actionTaken;
 	}
 
-
-	public void setActionTaken(String actionTaken) {
-		this.actionTaken = actionTaken;
+	public int getProduct_id() {
+		return product_id;
 	}
-	
-	
-	
-	
+
+	public String getProduct_desc() {
+		return product_desc;
+	}
+
+
+	public int getCustomer_id() {
+		return customer_id;
+	}
+
+
+	public String getCustomer_name() {
+		return customer_name;
+	}
 
 }
