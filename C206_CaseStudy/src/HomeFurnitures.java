@@ -11,8 +11,8 @@ public class HomeFurnitures extends Products {
 	private String material;
 
 	// Constructors
-	public HomeFurnitures(int productID, String description, String vendorName, double price, String material) {
-		super(productID, description, vendorName, price);
+	public HomeFurnitures(int productID, String description, String vendorName, double price,int noOfReturns, String material) {
+		super(productID, description, vendorName, price, noOfReturns);
 		this.material = material;
 	}
 

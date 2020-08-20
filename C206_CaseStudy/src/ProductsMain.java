@@ -13,10 +13,10 @@ public class ProductsMain {
 		ArrayList<HomeAppliances> haList = new ArrayList<HomeAppliances>();
 		ArrayList<HomeFurnitures> hfList = new ArrayList<HomeFurnitures>();
 
-		haList.add(new HomeAppliances(101, "Rice Cooker X19", "Deanne", 55.50, 1));
-		haList.add(new HomeAppliances(102, "Electric Oven R55", "Hanz", 105.20, 3));
-		hfList.add(new HomeFurnitures(201, "Storage Cabinet", "Alurea", 350.75, "Oak"));
-		hfList.add(new HomeFurnitures(202, "Study Table", "Chapmans", 95.50, "Rosewood"));
+		haList.add(new HomeAppliances(101, "Rice Cooker X19", "Deanne", 55.50, 5, 1));
+		haList.add(new HomeAppliances(102, "Electric Oven R55", "Hanz", 105.20, 6, 3));
+		hfList.add(new HomeFurnitures(201, "Storage Cabinet", "Alurea", 350.75, 4, "Oak"));
+		hfList.add(new HomeFurnitures(202, "Study Table", "Chapmans", 95.50, 3, "Rosewood"));
 
 		int option = 0;
 
@@ -104,17 +104,17 @@ public class ProductsMain {
 
 		for (int i = 0; i < haList.size(); i++) {
 
-			output += String.format("%-15d %-25s %-25s %-15.2f %-15d\n", haList.get(i).getProductID(),
+			output += String.format("%-15d %-25s %-25s %-15.2f %-20d %-20d\n", haList.get(i).getProductID(),
 					haList.get(i).getDescription(), haList.get(i).getVendorName(), haList.get(i).getPrice(),
-					haList.get(i).getWarrantyYears());
+					haList.get(i).getNoOfReturns(), haList.get(i).getWarrantyYears());
 		}
 		return output;
 	}
 
 	public static void viewAllHomeAppliances(ArrayList<HomeAppliances> haList) {
 		ProductsMain.setHeader("HOME APPLIANCES");
-		String output = String.format("%-15s %-25s %-25s %-15s %-15s\n", "PRODUCT ID", "DESCRIPTION", "VENDOR NAME",
-				"PRICE", "WARRANTY (IN YEARS)");
+		String output = String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "PRODUCT ID", "DESCRIPTION",
+				"VENDOR NAME", "PRICE", "NO. OF RETURNS", "WARRANTY (IN YEARS)");
 		output += retrieveHomeAppliances(haList);
 		System.out.println(output);
 	}
@@ -124,17 +124,17 @@ public class ProductsMain {
 
 		for (int i = 0; i < hfList.size(); i++) {
 
-			output += String.format("%-15d %-25s %-25s %-15.2f %-15s\n", hfList.get(i).getProductID(),
+			output += String.format("%-15d %-25s %-25s %-15.2f %-20d %-20s\n", hfList.get(i).getProductID(),
 					hfList.get(i).getDescription(), hfList.get(i).getVendorName(), hfList.get(i).getPrice(),
-					hfList.get(i).getMaterial());
+					hfList.get(i).getNoOfReturns(), hfList.get(i).getMaterial());
 		}
 		return output;
 	}
 
 	public static void viewAllHomeFurnitures(ArrayList<HomeFurnitures> hfList) {
 		ProductsMain.setHeader("HOME FURNITURES");
-		String output = String.format("%-15s %-25s %-25s %-15s %-15s\n", "PRODUCT ID", "DESCRIPTION", "VENDOR NAME",
-				"PRICE", "MATERIAL");
+		String output = String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "PRODUCT ID", "DESCRIPTION",
+				"VENDOR NAME", "PRICE", "NO. OF RETURNS" ,"MATERIAL");
 
 		output += retrieveHomeFurnitures(hfList);
 		System.out.println(output);
@@ -146,9 +146,10 @@ public class ProductsMain {
 		String description = Helper.readString("Enter Product Description: ");
 		String venName = Helper.readString("Enter the Vendor's Name: ");
 		double price = Helper.readDouble("Enter Product's price: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
 		int warYears = Helper.readInt("Enter Product Warranty (in Years): ");
 
-		HomeAppliances ha = new HomeAppliances(id, description, venName, price, warYears);
+		HomeAppliances ha = new HomeAppliances(id, description, venName, price, noOfReturns, warYears);
 		return ha;
 	}
 
@@ -163,9 +164,10 @@ public class ProductsMain {
 		String description = Helper.readString("Enter Product Description: ");
 		String venName = Helper.readString("Enter the Vendor's Name: ");
 		double price = Helper.readDouble("Enter Product's price: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
 		String material = Helper.readString("Enter Product's material: ");
 
-		HomeFurnitures hf = new HomeFurnitures(id, description, venName, price, material);
+		HomeFurnitures hf = new HomeFurnitures(id, description, venName, price, noOfReturns, material);
 		return hf;
 	}
 
@@ -181,9 +183,10 @@ public class ProductsMain {
 		String description = Helper.readString("Enter Product Description: ");
 		String venName = Helper.readString("Enter the Vendor's Name: ");
 		double price = Helper.readDouble("Enter Product's price: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
 		int warYears = Helper.readInt("Enter Product Warranty (in Years): ");
 
-		HomeAppliances ha = new HomeAppliances(id, description, venName, price, warYears);
+		HomeAppliances ha = new HomeAppliances(id, description, venName, price, noOfReturns, warYears);
 		return ha;
 
 	}
@@ -199,9 +202,10 @@ public class ProductsMain {
 		String description = Helper.readString("Enter Product Description: ");
 		String venName = Helper.readString("Enter the Vendor's Name: ");
 		double price = Helper.readDouble("Enter Product's price: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
 		String material = Helper.readString("Enter Product's material: ");
 
-		HomeFurnitures hf = new HomeFurnitures(id, description, venName, price, material);
+		HomeFurnitures hf = new HomeFurnitures(id, description, venName, price, noOfReturns, material);
 		return hf;
 
 	}

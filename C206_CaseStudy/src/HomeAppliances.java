@@ -1,5 +1,4 @@
 
-
 /**
  * I declare that this code was written by me. I will not copy or allow others
  * to copy my code. I understand that copying code is considered as plagiarism.
@@ -12,8 +11,9 @@ public class HomeAppliances extends Products {
 	private int warrantyYears;
 
 	// Constructors
-	public HomeAppliances(int productID, String description, String vendorName, double price, int warrantyYears) {
-		super(productID, description, vendorName,price);
+	public HomeAppliances(int productID, String description, String vendorName, double price, int noOfReturns,
+			int warrantyYears) {
+		super(productID, description, vendorName,price, noOfReturns);
 		this.warrantyYears = warrantyYears;
 	}
 

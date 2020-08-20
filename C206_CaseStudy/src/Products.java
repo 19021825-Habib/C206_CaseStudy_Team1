@@ -12,13 +12,15 @@ public class Products {
 	private String description;
 	private String vendorName;
 	private double price;
+	private int noOfReturns;
 
 	// Constructor
-	public Products(int productID, String description, String vendorName, double price) {
+	public Products(int productID, String description, String vendorName, double price, int noOfReturns) {
 		this.productID = productID;
 		this.description = description;
 		this.vendorName = vendorName;
 		this.price = price;
+		this.noOfReturns = noOfReturns;
 	}
 
 	// Getter Methods
@@ -37,4 +39,7 @@ public class Products {
 		return price;
 	}
 
+	public int getNoOfReturns() {
+		return noOfReturns;
+	}
 }
