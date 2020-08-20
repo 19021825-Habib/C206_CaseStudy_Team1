@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+//test
 public class CustomerTest {
 	private Customer cust1;
 	private Customer cust2;
