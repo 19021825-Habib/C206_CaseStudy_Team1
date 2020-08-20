@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class C206_CaseStudyTest {
+public class Proceduretest {
 	
 	private Procedure cc1;
 	private Procedure cc2;
@@ -54,3 +54,4 @@ public class C206_CaseStudyTest {
 	}
 
 }
+
