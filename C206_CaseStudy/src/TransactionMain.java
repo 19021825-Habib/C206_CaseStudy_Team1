@@ -37,11 +37,11 @@ public class TransactionMain {
 				boolean isCheck = false;
 				archived_id = Helper.readInt("Enter Transaction ID to be archived: ");
 				for(int i = 0; i < transactionList.size(); i++) {
-					if(archived_id  == (transactionList.get(i).getTransaction_id())){
+					if(archived_id == (transactionList.get(i).getTransaction_id())){
 						isCheck = true;
-						archivedList.add(transactionList.get(archived_id));
+						Transaction t = transactionList.remove(i);
+						archivedList.add(t);
 						TransactionMain.viewAllArchivedTransaction(archivedList);
-						transactionList.remove(archived_id);
 					}
 					
 				}
@@ -134,8 +134,8 @@ public class TransactionMain {
 		int archived_size = archivedList.size();
 		for (int i = 0; i < archived_size; i++) {
 
-			output += String.format("%-15d %-15d %-15s %-15d %-30s %s\n", transactionList.get(archived_id).getTransaction_id(), transactionList.get(archived_id).getCustomer_id()
-					, transactionList.get(archived_id).getCustomer_name(), transactionList.get(archived_id).getProduct_id(), transactionList.get(archived_id).getProduct_desc(), transactionList.get(archived_id).getActionTaken()   );
+			output += String.format("%-15d %-15d %-15s %-15d %-30s %s\n", archivedList.get(i).getTransaction_id(), archivedList.get(i).getCustomer_id()
+					, archivedList.get(i).getCustomer_name(), archivedList.get(i).getProduct_id(), archivedList.get(i).getProduct_desc(), archivedList.get(i).getActionTaken());
 		}
 		return output;
 	}
