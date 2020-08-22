@@ -10,7 +10,6 @@
  * @author 19015781
  *
  */
-// Testing1
 public class Customer {
 
 	/**
@@ -20,18 +19,23 @@ public class Customer {
 	private String name;
 	private String address;
 	private String email;
+	private int noOfReturns;
+
+
 	/**
 	 * @param customer_id
 	 * @param name
 	 * @param address
 	 * @param email
+	 * @param noOfReturns
 	 */
-	public Customer(int customer_id, String name, String address, String email) {
+	public Customer(int customer_id, String name, String address, String email, int noOfReturns) {
 		super();
 		this.customer_id = customer_id;
 		this.name = name;
 		this.address = address;
 		this.email = email;
+		this.noOfReturns = noOfReturns;
 	}
 	/**
 	 * @return the customer_id
@@ -57,8 +61,23 @@ public class Customer {
 	public String getEmail() {
 		return email;
 	}
-	
+	/**
+	 * @return the noOfReturns
+	 */
+	public int getNoOfReturns() {
+		return noOfReturns;
+	}
+	/**
+	 * @param noOfReturns the noOfReturns to set
+	 */
+	public void setNoOfReturns(int noOfReturns) {
+		this.noOfReturns = noOfReturns;
+	}
 	
 	
 
 }
+
+
+
+
