@@ -13,11 +13,6 @@ import java.util.ArrayList;
  *
  */
 
-
-	/**
-	 * @param args
-	 */
-
 		public class CustomerMain {
 
 
