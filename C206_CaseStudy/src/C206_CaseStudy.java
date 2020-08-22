@@ -19,9 +19,9 @@ public class C206_CaseStudy {
 		// Customer
 		ArrayList<Customer> CustomerList = new ArrayList<Customer>();
 
-		CustomerList.add(new Customer(1, "Dian", "223 Woodlands Street 11", "dian@gmail.com",3));
-		CustomerList.add(new Customer(2, "Li Ying", "550 Bedok View", "LiYing@hotmail.com",4));
-		CustomerList.add(new Customer(3, "Pravin", "123 Jurong West", "pravin@yahoo.com",5));
+		CustomerList.add(new Customer(1, "Dian", "223 Woodlands Street 11", "dian@gmail.com", 3));
+		CustomerList.add(new Customer(2, "Li Ying", "550 Bedok View", "LiYing@hotmail.com", 4));
+		CustomerList.add(new Customer(3, "Pravin", "123 Jurong West", "pravin@yahoo.com", 5));
 
 		// Transaction
 		transactionList.add(new Transaction(1, 1, "Habib", 101, "Rice Cooker X19", "Exchange", 10));
@@ -54,12 +54,12 @@ public class C206_CaseStudy {
 
 				if (prodChoice == 1) {
 					// View all products
-					ProductsMain.viewAllHomeAppliances(haList);
-					ProductsMain.viewAllHomeFurnitures(hfList);
+					C206_CaseStudy.viewAllHomeAppliances(haList);
+					C206_CaseStudy.viewAllHomeFurnitures(hfList);
 				} else if (prodChoice == 2) {
 					// Adding a product
-					ProductsMain.setHeader("ADD PRODUCT");
-					ProductsMain.setHeader("PRODUCT TYPES");
+					C206_CaseStudy.setHeader("ADD PRODUCT");
+					C206_CaseStudy.setHeader("PRODUCT TYPES");
 					System.out.println("1. Home Appliances");
 					System.out.println("2. Home Furnitures");
 
@@ -68,12 +68,12 @@ public class C206_CaseStudy {
 					if (prodType == 1) {
 						// Adding an Appliance
 						HomeAppliances ha = inputHomeAppliances();
-						ProductsMain.addHomeAppliances(haList, ha);
+						C206_CaseStudy.addHomeAppliances(haList, ha);
 
 					} else if (prodType == 2) {
 						// Adding a Furniture
 						HomeFurnitures hf = inputHomeFurnitures();
-						ProductsMain.addHomeFurnitures(hfList, hf);
+						C206_CaseStudy.addHomeFurnitures(hfList, hf);
 
 					} else {
 						System.out.println("Please enter a valid option");
@@ -81,8 +81,8 @@ public class C206_CaseStudy {
 
 				} else if (prodChoice == 3) {
 					// Deleting a product
-					ProductsMain.setHeader("DELETE PRODUCT");
-					ProductsMain.setHeader("PRODUCT TYPES");
+					C206_CaseStudy.setHeader("DELETE PRODUCT");
+					C206_CaseStudy.setHeader("PRODUCT TYPES");
 					System.out.println("1. Home Appliances");
 					System.out.println("2. Home Furnitures");
 
@@ -90,11 +90,11 @@ public class C206_CaseStudy {
 
 					if (prodType == 1) {
 						// Adding an Appliance
-						ProductsMain.removeHomeAppliances(haList);
+						C206_CaseStudy.removeHomeAppliances(haList);
 
 					} else if (prodType == 2) {
 						// Adding a Furniture
-						ProductsMain.removeHomeFurnitures(hfList);
+						C206_CaseStudy.removeHomeFurnitures(hfList);
 
 					} else {
 						System.out.println("Please enter a valid option");
@@ -102,8 +102,8 @@ public class C206_CaseStudy {
 
 				} else if (prodChoice == 4) {
 					// Updating number of returns
-					ProductsMain.setHeader("UPDATE NO. OF RETURNS");
-					ProductsMain.setHeader("PRODUCT TYPES");
+					C206_CaseStudy.setHeader("UPDATE NO. OF RETURNS");
+					C206_CaseStudy.setHeader("PRODUCT TYPES");
 					System.out.println("1. Home Appliances");
 					System.out.println("2. Home Furnitures");
 
@@ -111,11 +111,11 @@ public class C206_CaseStudy {
 
 					if (prodType == 1) {
 						// Update an Appliance
-						ProductsMain.updateHomeAppliances(haList);
+						C206_CaseStudy.updateHomeAppliances(haList);
 
 					} else if (prodType == 2) {
 						// Update a Furniture
-						ProductsMain.updateHomeFurnitures(hfList);
+						C206_CaseStudy.updateHomeFurnitures(hfList);
 
 					} else {
 						System.out.println("Please enter a valid option");
@@ -124,29 +124,29 @@ public class C206_CaseStudy {
 
 			} else if (option == 2) {
 				// this would point out to Aisyah's main customer information class
-				CustomerMain.menu();
+				C206_CaseStudy.customerMenu();
 				option = Helper.readInt("Enter an option > ");
 
 				if (option == 1) {
-					// View 
-					CustomerMain.viewAllCustomer(CustomerList);
+					// View
+					C206_CaseStudy.viewAllCustomer(CustomerList);
 
 				} else if (option == 2) {
-					// Add 
-					CustomerMain.setHeader("ADD CUSTOMER");
-					
+					// Add
+					C206_CaseStudy.setHeader("ADD CUSTOMER");
+
 					Customer cust = inputCustomer();
-					CustomerMain.addCustomer(CustomerList, cust);
+					C206_CaseStudy.addCustomer(CustomerList, cust);
 
 				} else if (option == 3) {
 					// Delete
-					CustomerMain.setHeader("DELETE CUSTOMER");
-					CustomerMain.removeCustomer(CustomerList);
+					C206_CaseStudy.setHeader("DELETE CUSTOMER");
+					C206_CaseStudy.removeCustomer(CustomerList);
 
-				}else if (option == 4) {
-					//Update
-					CustomerMain.setHeader("UPDATE RETURN HISTORY");
-					CustomerMain.updatereturn(CustomerList);
+				} else if (option == 4) {
+					// Update
+					C206_CaseStudy.setHeader("UPDATE RETURN HISTORY");
+					C206_CaseStudy.updatereturn(CustomerList);
 
 				}
 			} else if (option == 3) {
@@ -155,10 +155,10 @@ public class C206_CaseStudy {
 				option = Helper.readInt("Enter choice > ");
 				if (option == 1) {
 					Transaction tc = inputTransaction();
-					TransactionMain.addTransaction(transactionList, tc);
+					C206_CaseStudy.addTransaction(transactionList, tc);
 
 				} else if (option == 2) {
-					TransactionMain.viewAllTransaction(transactionList);
+					C206_CaseStudy.viewAllTransaction(transactionList);
 
 				} else if (option == 3) {
 					boolean isCheck = false;
@@ -168,7 +168,7 @@ public class C206_CaseStudy {
 							isCheck = true;
 							Transaction t = transactionList.remove(i);
 							archivedList.add(t);
-							TransactionMain.viewAllArchivedTransaction(archivedList);
+							C206_CaseStudy.viewAllArchivedTransaction(archivedList);
 						}
 
 					}
@@ -177,7 +177,7 @@ public class C206_CaseStudy {
 					}
 
 				} else if (option == 4) {
-					TransactionMain.updateTransaction(transactionList);
+					C206_CaseStudy.updateTransaction(transactionList);
 
 				}
 
@@ -382,7 +382,7 @@ public class C206_CaseStudy {
 		System.out.println("1. View customer");
 		System.out.println("2. Add customer");
 		System.out.println("3. Delete customer");
-		System.out.println("4. Update Customer  return history");
+		System.out.println("4. Update Customer return history");
 		System.out.println("5. Quit");
 		Helper.line(80, "-");
 
