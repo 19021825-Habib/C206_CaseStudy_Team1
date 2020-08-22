@@ -11,10 +11,10 @@ public class C206_CaseStudy {
 		ArrayList<HomeAppliances> haList = new ArrayList<HomeAppliances>();
 		ArrayList<HomeFurnitures> hfList = new ArrayList<HomeFurnitures>();
 
-		haList.add(new HomeAppliances(101, "Rice Cooker X19", "Deanne", 55.50, 5, 1));
-		haList.add(new HomeAppliances(102, "Electric Oven R55", "Hanz", 105.20, 6, 3));
-		hfList.add(new HomeFurnitures(201, "Storage Cabinet", "Alurea", 350.75, 4, "Oak"));
-		hfList.add(new HomeFurnitures(202, "Study Table", "Chapmans", 95.50, 3, "Rosewood"));
+		haList.add(new HomeAppliances(101, "Rice Cooker X19", "Deanne", 55.50, 10, 1));
+		haList.add(new HomeAppliances(102, "Electric Oven R55", "Hanz", 105.20, 5, 3));
+		hfList.add(new HomeFurnitures(201, "Storage Cabinet", "Alurea", 350.75, 6, "Oak"));
+		hfList.add(new HomeFurnitures(202, "Study Table", "Chapmans", 95.50, 8, "Rosewood"));
 
 		// Customer
 		ArrayList<Customer> CustomerList = new ArrayList<Customer>();
@@ -227,11 +227,11 @@ public class C206_CaseStudy {
 
 	// PRODUCTS
 	private static void productMenu() {
-		ProductsMain.setHeader("RESOURCE CENTRE APP");
+		ProductsMain.setHeader("DISO TRACKING SYSTEM");
 		System.out.println("1. Display all Products");
 		System.out.println("2. Add a product");
 		System.out.println("3. Delete a product");
-		System.out.println("4. Update number of returns");
+		System.out.println("4. Update Number of Returns");
 		Helper.line(80, "-");
 
 	}
@@ -379,11 +379,10 @@ public class C206_CaseStudy {
 	// CUSTOMER
 	public static void customerMenu() {
 		CustomerMain.setHeader("DISO TRACKING SYSTEM");
-		System.out.println("1. View customer");
-		System.out.println("2. Add customer");
-		System.out.println("3. Delete customer");
-		System.out.println("4. Update Customer return history");
-		System.out.println("5. Quit");
+		System.out.println("1. Display all Customers");
+		System.out.println("2. Add a Customer");
+		System.out.println("3. Delete a Customer");
+		System.out.println("4. Update Customer Return History");
 		Helper.line(80, "-");
 
 	}
@@ -465,17 +464,16 @@ public class C206_CaseStudy {
 	public static void transactionMenu() {
 		// TODO: P05 Task 1 - Write code here for the menu options.
 		Helper.line(40, "-");
-		System.out.println("WELCOME TO DISO TRACKING SYSTEM");
+		System.out.println("DISO TRACKING SYSTEM");
 		Helper.line(40, "-");
 
-		System.out.println("1. Add Transaction");
-		System.out.println("2. View Transaction");
-		System.out.println("3. View Archived Transaction");
+		System.out.println("1. Add a Transaction");
+		System.out.println("2. View all Transactions");
+		System.out.println("3. View Archived Transactions");
 		System.out.println("4. Update Transaction");
 	}
 
-	// ================================= Option 1 Add
-	// =================================
+	// ================= Option 1 Add  =================
 	public static Transaction inputTransaction() {
 		int transaction_id = Helper.readInt("Enter Transaction ID > ");
 		int cus_id = Helper.readInt("Enter Customer ID > ");
@@ -497,8 +495,7 @@ public class C206_CaseStudy {
 		System.out.println("Transaction added");
 	}
 
-	// ================================= Option 2 View
-	// =================================
+	//  ================= Option 2 View  =================
 	public static String retrieveAllTransaction(ArrayList<Transaction> transactionList) {
 		String output = "";
 
@@ -522,8 +519,7 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 
-	// ================================= Option 3 View OLD archived
-	// =================================
+	//  ================= Option 3 View OLD archived  =================
 	public static String retriveAllArchivedTransaction(ArrayList<Transaction> archivedList) {
 		String output = "";
 
@@ -547,8 +543,7 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 
-	// ================================= Option 4 Update
-	// =================================
+	//  ================= Option 4 Update  =================
 	public static void updateTransaction(ArrayList<Transaction> transactionList) {
 		int transaction_id = Helper.readInt("Enter Transaction ID to update > ");
 		int num_Returns = Helper.readInt("Enter number of return to update > ");
@@ -567,12 +562,14 @@ public class C206_CaseStudy {
 	// PROCEDURE
 	private static void procedureMenu() {
 		Helper.line(50, "=");
-		System.out.println("Procedures");
+		System.out.println("DISO TRACKING SYSTEM");
 		Helper.line(50, "=");
-
-		System.out.println("1. View all procedure");
-		System.out.println("2. add procedure");
-		System.out.println("3. delete procedure");
+	
+		System.out.println("1. View all Procedures");
+		System.out.println("2. Add a Procedure");
+		System.out.println("3. Delete a Procedure");
+		System.out.println("4. Update Procedure Remarks");
+		
 
 	}
 
