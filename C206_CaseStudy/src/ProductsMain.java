@@ -73,11 +73,32 @@ public class ProductsMain {
 				}
 
 			} else if (option == 4) {
+				// Updating number of returns
+				ProductsMain.setHeader("UPDATE NO. OF RETURNS");
+				ProductsMain.setHeader("PRODUCT TYPES");
+				System.out.println("1. Home Appliances");
+				System.out.println("2. Home Furnitures");
+
+				int prodType = Helper.readInt("Enter option to select product type > ");
+
+				if (prodType == 1) {
+					// Update an Appliance
+					ProductsMain.updateHomeAppliances(haList);
+
+				} else if (prodType == 2) {
+					// Update a Furniture
+					ProductsMain.updateHomeFurnitures(hfList);
+
+				} else {
+					System.out.println("Please enter a valid option");
+				}
+			} else if (option == 5) {
 				System.out.println("Thank you for using our system! Goodbye");
 			} else {
 				System.out.println("Please enter a valid option");
 			}
 		}
+
 	}
 
 	private static void menu() {
@@ -132,7 +153,7 @@ public class ProductsMain {
 	public static void viewAllHomeFurnitures(ArrayList<HomeFurnitures> hfList) {
 		ProductsMain.setHeader("HOME FURNITURES");
 		String output = String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "PRODUCT ID", "DESCRIPTION",
-				"VENDOR NAME", "PRICE", "NO. OF RETURNS" ,"MATERIAL");
+				"VENDOR NAME", "PRICE", "NO. OF RETURNS", "MATERIAL");
 
 		output += retrieveHomeFurnitures(hfList);
 		System.out.println(output);
@@ -177,34 +198,55 @@ public class ProductsMain {
 
 	// -------------------- OPTION 3 DELETING--------------------
 
-		public static void removeHomeAppliances(ArrayList<HomeAppliances> haList) {
-			int id = Helper.readInt("Enter a Product ID: ");
-			boolean deleted = false;
-			for (int i = 0; i < haList.size(); i++) {
-				if (haList.get(i).getProductID() == id) {
-					haList.remove(i);
-					deleted = true;
-					System.out.println("Home Appliance deleted successfullly!");
-				}
-			}
-			if (deleted == false) {
-				System.out.println("Delete rejected, Appliance not found!");
+	public static void removeHomeAppliances(ArrayList<HomeAppliances> haList) {
+		int id = Helper.readInt("Enter a Product ID: ");
+		boolean deleted = false;
+		for (int i = 0; i < haList.size(); i++) {
+			if (haList.get(i).getProductID() == id) {
+				haList.remove(i);
+				deleted = true;
+				System.out.println("Home Appliance deleted successfullly!");
 			}
 		}
+		if (deleted == false) {
+			System.out.println("Delete rejected, Appliance not found!");
+		}
+	}
 
-		public static void removeHomeFurnitures(ArrayList<HomeFurnitures> hfList) {
+	public static void removeHomeFurnitures(ArrayList<HomeFurnitures> hfList) {
 
-			int id = Helper.readInt("Enter a Product ID: ");
-			boolean deleted = false;
-			for (int i = 0; i < hfList.size(); i++) {
-				if (hfList.get(i).getProductID() == id) {
-					deleted = true;
-					hfList.remove(i);
-					System.out.println("Home Furniture deleted successfullly!");
-				}
+		int id = Helper.readInt("Enter a Product ID: ");
+		boolean deleted = false;
+		for (int i = 0; i < hfList.size(); i++) {
+			if (hfList.get(i).getProductID() == id) {
+				deleted = true;
+				hfList.remove(i);
+				System.out.println("Home Furniture deleted successfullly!");
 			}
-			if (deleted == false) {
-				System.out.println("Delete rejected, Furniture not found!");
+		}
+		if (deleted == false) {
+			System.out.println("Delete rejected, Furniture not found!");
+		}
+	}
+	// -------------------- OPTION 3 UPDATING--------------------
+
+	public static void updateHomeAppliances(ArrayList<HomeAppliances> haList) {
+		int id = Helper.readInt("Enter a Product ID: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
+		for (int i = 0; i < haList.size(); i++) {
+			if (haList.get(i).getProductID() == id) {
+				haList.get(i).setNoOfReturns(noOfReturns);
 			}
 		}
 	}
+
+	public static void updateHomeFurnitures(ArrayList<HomeFurnitures> hfList) {
+		int id = Helper.readInt("Enter a Product ID: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
+		for (int i = 0; i < hfList.size(); i++) {
+			if (hfList.get(i).getProductID() == id) {
+				hfList.get(i).setNoOfReturns(noOfReturns);
+			}
+		}
+	}
+}

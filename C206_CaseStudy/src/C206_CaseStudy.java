@@ -12,10 +12,10 @@ public class C206_CaseStudy {
 		hfList.add(new HomeFurnitures(201, "Storage Cabinet", "Alurea", 350.75, 4, "Oak"));
 		hfList.add(new HomeFurnitures(202, "Study Table", "Chapmans", 95.50, 3, "Rosewood"));
 
-		//Customer
-		
-		//Transaction
-		
+		// Customer
+
+		// Transaction
+
 		// Procedure
 		ArrayList<Procedure> procedureList = new ArrayList<Procedure>();
 
@@ -87,6 +87,26 @@ public class C206_CaseStudy {
 						System.out.println("Please enter a valid option");
 					}
 
+				} else if (prodChoice == 4) {
+					// Updating number of returns
+					ProductsMain.setHeader("UPDATE NO. OF RETURNS");
+					ProductsMain.setHeader("PRODUCT TYPES");
+					System.out.println("1. Home Appliances");
+					System.out.println("2. Home Furnitures");
+
+					int prodType = Helper.readInt("Enter option to select product type > ");
+
+					if (prodType == 1) {
+						// Update an Appliance
+						ProductsMain.updateHomeAppliances(haList);
+
+					} else if (prodType == 2) {
+						// Update a Furniture
+						ProductsMain.updateHomeFurnitures(hfList);
+
+					} else {
+						System.out.println("Please enter a valid option");
+					}
 				}
 
 			} else if (option == 2) {
@@ -95,7 +115,6 @@ public class C206_CaseStudy {
 			} else if (option == 3) {
 				// this would point out to Habib's main transactions class
 
-				
 			} else if (option == 4) {
 				// this would point out to Shun Kai's main procedures class
 				procedureMenu();
@@ -113,6 +132,9 @@ public class C206_CaseStudy {
 					// Delete item
 					deleteprocedure(procedureList);
 
+				} else if (option == 4) {
+					// Update item
+					updateremark(procedureList);
 				}
 
 			} else if (option == 5) {
@@ -143,6 +165,7 @@ public class C206_CaseStudy {
 		System.out.println("1. Display all Products");
 		System.out.println("2. Add a product");
 		System.out.println("3. Delete a product");
+		System.out.println("4. Update number of returns");
 		Helper.line(80, "-");
 
 	}
@@ -262,6 +285,27 @@ public class C206_CaseStudy {
 		}
 		if (deleted == false) {
 			System.out.println("Delete rejected, Furniture not found!");
+		}
+	}
+	
+	// -------------------- OPTION 3 UPDATING--------------------
+	
+	public static void updateHomeAppliances(ArrayList<HomeAppliances> haList) {
+		int id = Helper.readInt("Enter a Product ID: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
+		for (int i = 0; i < haList.size(); i++) {
+			if (haList.get(i).getProductID() == id) {
+				haList.get(i).setNoOfReturns(noOfReturns);
+			}
+		}
+	}
+	public static void updateHomeFurnitures(ArrayList<HomeFurnitures> hfList) {
+		int id = Helper.readInt("Enter a Product ID: ");
+		int noOfReturns = Helper.readInt("Enter number of returns: ");
+		for (int i = 0; i < hfList.size(); i++) {
+			if (hfList.get(i).getProductID() == id) {
+				hfList.get(i).setNoOfReturns(noOfReturns);
+			}
 		}
 	}
 

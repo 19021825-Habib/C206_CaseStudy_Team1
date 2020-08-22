@@ -28,6 +28,10 @@ public class Products {
 		return productID;
 	}
 
+	public void setNoOfReturns(int noOfReturns) {
+		this.noOfReturns = noOfReturns;
+	}
+
 	public String getDescription() {
 		return description;
 	}
