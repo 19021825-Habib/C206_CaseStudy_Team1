@@ -14,16 +14,18 @@ public class Transaction {
 	private int product_id;
 	private String product_desc;
 	private String actionTaken;
+	private int noOfReturns;
 
 
 	public Transaction(int transaction_id, int customer_id, String customer_name, int product_id,
-			String product_desc, String actionTaken) {
+			String product_desc, String actionTaken, int noOfReturns) {
 		this.transaction_id = transaction_id;
 		this.customer_id = customer_id;
 		this.customer_name = customer_name;
 		this.product_id = product_id;
 		this.product_desc = product_desc;
 		this.actionTaken = actionTaken;
+		this.noOfReturns = noOfReturns;
 	}
 
 	public int getTransaction_id() {
@@ -51,5 +53,16 @@ public class Transaction {
 	public String getCustomer_name() {
 		return customer_name;
 	}
+
+
+	public int getNoOfReturns() {
+		return noOfReturns;
+	}
+
+
+	public void setNoOfReturns(int noOfReturns) {
+		this.noOfReturns = noOfReturns;
+	}
+	
 
 }

@@ -15,14 +15,14 @@ public class TransactionMain {
 	
 	public static void main(String[] args) {
 		
-		transactionList.add(new Transaction(1, 1, "Habib", 101, "Rice Cooker X19", "Exchange"));
-		transactionList.add(new Transaction(2, 2, "Sophia", 101, "Electirc Oven R55", "Refund"));
-		transactionList.add(new Transaction(3, 3, "Shun Kai", 101, "Storage Cabinet", "Exchange"));
-		transactionList.add(new Transaction(4, 4, "Aiysha", 101, "Study Table", "Refund"));
+		transactionList.add(new Transaction(1, 1, "Habib", 101, "Rice Cooker X19", "Exchange", 10));
+		transactionList.add(new Transaction(2, 2, "Sophia", 101, "Electirc Oven R55", "Refund", 5));
+		transactionList.add(new Transaction(3, 3, "Shun Kai", 101, "Storage Cabinet", "Exchange", 6));
+		transactionList.add(new Transaction(4, 4, "Aiysha", 101, "Study Table", "Refund", 8));
 		
 		int option = -1;
 
-		while (option != 4) {
+		while (option != 5) {
 
 			menu();
 			option = Helper.readInt("Enter choice > ");
@@ -52,7 +52,12 @@ public class TransactionMain {
 				
 
 			} else if (option == 4) {
+				TransactionMain.updateTransaction(transactionList);
+				
+			}
+			else if(option == 5) {
 				System.out.println("Thank you for using Diso Tracking System");
+				
 			}
 			else {
 				System.out.println("Invalid option!");
@@ -75,7 +80,7 @@ public class TransactionMain {
 		System.out.println("1. Add Transaction");
 		System.out.println("2. View Transaction");
 		System.out.println("3. View Archived Transaction");
-		System.out.println("4. Quit");
+		System.out.println("4. Update Transaction");
 	}
 	
 	public static void setHeader(String header) {
@@ -94,8 +99,9 @@ public class TransactionMain {
 		int product_id = Helper.readInt("Enter Product ID > ");
 		String product_desc = Helper.readString("Enter Product Description > ");
 		String actionTaken = Helper.readString("Enter Action Taken > ");
+		int noOfReturns = Helper.readInt("Enter Number of returns >");
 
-		Transaction tc= new Transaction(transaction_id, cus_id, cus_name, product_id, product_desc, actionTaken);
+		Transaction tc= new Transaction(transaction_id, cus_id, cus_name, product_id, product_desc, actionTaken, noOfReturns);
 		return tc;
 		
 	}
@@ -114,39 +120,57 @@ public class TransactionMain {
 		int transction_size = transactionList.size();
 		for (int i = 0; i < transction_size; i++) {
 
-			output += String.format("%-15d %-15d %-15s %-15d %-30s %s\n", transactionList.get(i).getTransaction_id(), transactionList.get(i).getCustomer_id()
-					, transactionList.get(i).getCustomer_name(), transactionList.get(i).getProduct_id(), transactionList.get(i).getProduct_desc(), transactionList.get(i).getActionTaken()   );
+			output += String.format("%-15d %-15d %-15s %-15d %-30s %-20s %-10d\n", transactionList.get(i).getTransaction_id(), transactionList.get(i).getCustomer_id()
+					, transactionList.get(i).getCustomer_name(), transactionList.get(i).getProduct_id(), transactionList.get(i).getProduct_desc(), transactionList.get(i).getActionTaken(), transactionList.get(i).getNoOfReturns() );
 		}
 		return output;
 	}
 	public static void viewAllTransaction(ArrayList<Transaction> transactionList) {
 		TransactionMain.setHeader("TRANSACTION LIST");
-		String output = String.format("%-15s %-15s %-15s %-15s %-30s %s\n", "TRANSACTION ID", "CUSTOMER ID", "CUSTOMER NAME", "PRODUCT ID", "PRODUCT DESCRIPTON","ACTION TAKEN");
+		String output = String.format("%-15s %-15s %-15s %-15s %-30s %-20s %-10s\n", "TRANSACTION ID", "CUSTOMER ID", "CUSTOMER NAME", "PRODUCT ID", "PRODUCT DESCRIPTON","ACTION TAKEN", "NO OF RETURNS");
 		 output += retrieveAllTransaction(transactionList);	
 		System.out.println(output);
 	}
 	
 	
-	//================================= Option 2 View OLD archived =================================
+	//================================= Option 3 View OLD archived =================================
 	public static String retriveAllArchivedTransaction(ArrayList<Transaction> archivedList) {
 		String output = "";
 
 		int archived_size = archivedList.size();
 		for (int i = 0; i < archived_size; i++) {
 
-			output += String.format("%-15d %-15d %-15s %-15d %-30s %s\n", archivedList.get(i).getTransaction_id(), archivedList.get(i).getCustomer_id()
-					, archivedList.get(i).getCustomer_name(), archivedList.get(i).getProduct_id(), archivedList.get(i).getProduct_desc(), archivedList.get(i).getActionTaken());
+			output += String.format("%-15d %-15d %-15s %-15d %-30s %-20s %-10d\n", archivedList.get(i).getTransaction_id(), archivedList.get(i).getCustomer_id()
+					, archivedList.get(i).getCustomer_name(), archivedList.get(i).getProduct_id(), archivedList.get(i).getProduct_desc(), archivedList.get(i).getActionTaken(), archivedList.get(i).getNoOfReturns());
 		}
 		return output;
 	}
 	
 	public static void viewAllArchivedTransaction(ArrayList<Transaction> archivedList) {
 		TransactionMain.setHeader("ARCHIVED LIST");
-		String output = String.format("%-15s %-15s %-15s %-15s %-30s %s\n", "TRANSACTION ID", "CUSTOMER ID", 
-				"CUSTOMER NAME", "PRODUCT ID", "PRODUCT DESCRIPTON","ACTION TAKEN");
+		String output = String.format("%-15s %-15s %-15s %-15s %-30s %-20s %-10s\n", "TRANSACTION ID", "CUSTOMER ID", 
+				"CUSTOMER NAME", "PRODUCT ID", "PRODUCT DESCRIPTON","ACTION TAKEN", "NO OF RETURNS");
 		output += retriveAllArchivedTransaction(archivedList);
 		System.out.println(output);
 	}
+	
+	
+	//================================= Option 4 Update =================================
+	public static void updateTransaction(ArrayList<Transaction> transactionList) {
+		int transaction_id = Helper.readInt("Enter Transaction ID to update > ");
+		int num_Returns = Helper.readInt("Enter number of return to update > ");
+		boolean isUpdate = false;
+		for(int i = 0; i < transactionList.size(); i++) {
+			if(transactionList.get(i).getTransaction_id() == transaction_id) {
+				transactionList.get(i).setNoOfReturns(num_Returns);
+				isUpdate = true;
+			}		
+		}
+		if(isUpdate == false) {
+			System.out.println("Update Failed!!");
+		}
+	}
+	
 	
 
 }
