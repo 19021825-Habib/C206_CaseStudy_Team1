@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class C206_CaseStudy {
+	//Test
 	static int archived_id = 0;
 	static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
 	static ArrayList<Transaction> archivedList = new ArrayList<Transaction>();
