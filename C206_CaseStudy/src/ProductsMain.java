@@ -62,13 +62,11 @@ public class ProductsMain {
 
 				if (prodType == 1) {
 					// Adding an Appliance
-					HomeAppliances ha = getHomeAppliances();
-					ProductsMain.removeHomeAppliances(haList, ha);
+					ProductsMain.removeHomeAppliances(haList);
 
 				} else if (prodType == 2) {
 					// Adding a Furniture
-					HomeFurnitures hf = getHomeFurnitures();
-					ProductsMain.removeHomeFurnitures(hfList, hf);
+					ProductsMain.removeHomeFurnitures(hfList);
 
 				} else {
 					System.out.println("Please enter a valid option");
@@ -178,42 +176,35 @@ public class ProductsMain {
 	}
 
 	// -------------------- OPTION 3 DELETING--------------------
-	public static HomeAppliances getHomeAppliances() {
-		int id = Helper.readInt("Enter a Product ID: ");
-		String description = Helper.readString("Enter Product Description: ");
-		String venName = Helper.readString("Enter the Vendor's Name: ");
-		double price = Helper.readDouble("Enter Product's price: ");
-		int noOfReturns = Helper.readInt("Enter number of returns: ");
-		int warYears = Helper.readInt("Enter Product Warranty (in Years): ");
 
-		HomeAppliances ha = new HomeAppliances(id, description, venName, price, noOfReturns, warYears);
-		return ha;
+		public static void removeHomeAppliances(ArrayList<HomeAppliances> haList) {
+			int id = Helper.readInt("Enter a Product ID: ");
+			boolean deleted = false;
+			for (int i = 0; i < haList.size(); i++) {
+				if (haList.get(i).getProductID() == id) {
+					haList.remove(i);
+					deleted = true;
+					System.out.println("Home Appliance deleted successfullly!");
+				}
+			}
+			if (deleted == false) {
+				System.out.println("Delete rejected, Appliance not found!");
+			}
+		}
 
+		public static void removeHomeFurnitures(ArrayList<HomeFurnitures> hfList) {
+
+			int id = Helper.readInt("Enter a Product ID: ");
+			boolean deleted = false;
+			for (int i = 0; i < hfList.size(); i++) {
+				if (hfList.get(i).getProductID() == id) {
+					deleted = true;
+					hfList.remove(i);
+					System.out.println("Home Furniture deleted successfullly!");
+				}
+			}
+			if (deleted == false) {
+				System.out.println("Delete rejected, Furniture not found!");
+			}
+		}
 	}
-
-	public static void removeHomeAppliances(ArrayList<HomeAppliances> haList, HomeAppliances ha) {
-
-		haList.remove(ha);
-		System.out.println("Home Appliance deleted successfullly!");
-	}
-
-	public static HomeFurnitures getHomeFurnitures() {
-		int id = Helper.readInt("Enter a Product ID: ");
-		String description = Helper.readString("Enter Product Description: ");
-		String venName = Helper.readString("Enter the Vendor's Name: ");
-		double price = Helper.readDouble("Enter Product's price: ");
-		int noOfReturns = Helper.readInt("Enter number of returns: ");
-		String material = Helper.readString("Enter Product's material: ");
-
-		HomeFurnitures hf = new HomeFurnitures(id, description, venName, price, noOfReturns, material);
-		return hf;
-
-	}
-
-	public static void removeHomeFurnitures(ArrayList<HomeFurnitures> hfList, HomeFurnitures hf) {
-
-		hfList.remove(hf);
-		System.out.println("Home Furniture deleted successfullly!");
-
-	}
-}
