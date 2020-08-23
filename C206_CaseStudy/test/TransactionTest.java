@@ -28,8 +28,8 @@ public class TransactionTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		t1 = new Transaction(1, 1, "Habib", 101, "Rice Cooker X19", "Exchange");
-		t2 = new Transaction(2, 2, "Sophia", 101, "Electirc Oven R55", "Refund");
+		t1 = new Transaction(1, 1, "Habib", 101, "Rice Cooker X19", "Exchange", 5);
+		t2 = new Transaction(2, 2, "Sophia", 101, "Electirc Oven R55", "Refund", 5);
 
 		transactionList = new ArrayList<Transaction>();
 	}

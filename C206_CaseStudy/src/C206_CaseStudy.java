@@ -214,7 +214,7 @@ public class C206_CaseStudy {
 
 	private static void menu() {
 		Helper.line(80, "-");
-		System.out.println("");
+		System.out.println("WELCOME TO DISO TRACKING SYSTEM");
 		Helper.line(80, "-");
 		System.out.println("1. Manage Products");
 		System.out.println("2. Manage Customer Information");
