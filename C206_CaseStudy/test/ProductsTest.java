@@ -29,10 +29,10 @@ class ProductsTest {
 	@Before
 	public void setUp() throws Exception {
 		//preparing test data
-		ha1 = new HomeAppliances(101, "Rice Cooker X19", "Deanne", 55.50 , 5, 1);
-		ha2 = new HomeAppliances(102, "Electric Oven R55", "Hanz",105.20 ,6, 3);
-		hf1 = new HomeFurnitures(201, "Storage Cabinet", "Alurea", 350.75,4,"Oak");
-		hf2 = new HomeFurnitures(202, "Study Table", "Chapmans", 95.50,3,"Rosewood");
+		ha1 = new HomeAppliances(101, "Rice Cooker X19", "Deanne", 55.50 , 10, 1);
+		ha2 = new HomeAppliances(102, "Electric Oven R55", "Hanz",105.20 ,5, 3);
+		hf1 = new HomeFurnitures(201, "Storage Cabinet", "Alurea", 350.75,6,"Oak");
+		hf2 = new HomeFurnitures(202, "Study Table", "Chapmans", 95.50,8,"Rosewood");
 		
 		haList = new ArrayList<HomeAppliances>();
 		hfList = new ArrayList<HomeFurnitures>();
@@ -93,8 +93,8 @@ class ProductsTest {
 		//Test if the expected output string same as the list of Home Appliances retrieved from the Products
 		String allAppliances = ProductsMain.retrieveHomeAppliances(haList);
 		String testOutput1 = "";
-		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "101", "Rice Cooker X19", "Deanne", "55.50", "5" ,"1");
-		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "102", "Electric Oven R55", "Hanz", "105.20","6", "3");
+		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "101", "Rice Cooker X19", "Deanne", "55.50", "10" ,"1");
+		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "102", "Electric Oven R55", "Hanz", "105.20","5", "3");
 		
 		assertEquals("Test that ViewAllHomeAppliancesList", testOutput1, allAppliances);
 	}
@@ -117,8 +117,8 @@ class ProductsTest {
 		//Test if the expected output string same as the list of Home Furnitures retrieved from the Products
 		String allAppliances = ProductsMain.retrieveHomeAppliances(haList);
 		String testOutput1 = ""; 
-		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "201", "Storage Cabinet", "Alurea", "350.75","4" ,"Oak");
-		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "202", "Study Table", "Chapmans", "95.50", "3","Rosewood");
+		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "201", "Storage Cabinet", "Alurea", "350.75","6" ,"Oak");
+		testOutput1 += String.format("%-15s %-25s %-25s %-15s %-20s %-20s\n", "202", "Study Table", "Chapmans", "95.50", "8","Rosewood");
 				
 		assertEquals("Test that ViewAllHomeAppliancesList", testOutput1, allAppliances);
 	}
