@@ -13,14 +13,14 @@ import org.junit.Test;
  * 19001627, 19 Aug 2020 12:43:24 am
  */
 
-class ProductsTest {
+public class ProductsTest {
 	private HomeAppliances ha1;
 	private HomeAppliances ha2;
 	private HomeFurnitures hf1;
 	private HomeFurnitures hf2;
 
-	private ArrayList<HomeAppliances> haList;
-	private ArrayList<HomeFurnitures> hfList;
+	public ArrayList<HomeAppliances> haList;
+	public ArrayList<HomeFurnitures> hfList;
 
 	public ProductsTest() {
 		super();
@@ -136,7 +136,7 @@ class ProductsTest {
 	}
 	
 	@After
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 		ha1 = null;
 		ha2 = null;
 		hf1 = null;

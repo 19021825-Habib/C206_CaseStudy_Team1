@@ -46,13 +46,13 @@ public class Proceduretest {
 		
 		//Given an empty list, after adding 1 item, the size of the list is 1 - normal
 		//The item just added is as same as the first item of the list
-		ProcedureExecution.deleteprocedure(procedureList, cc1);		
+		ProcedureExecution.deleteprocedure(procedureList);		
 		assertEquals("Test that Customer arraylist size is 1", 1, procedureList.size());
 		assertSame("Test that Customer is deleted", cc1, procedureList.get(0));
 		
 		//Add another item. test The size of the list is 2? - normal
 		//The item just added is as same as the second item of the list
-		ProcedureExecution.deleteprocedure(procedureList, cc2);
+		ProcedureExecution.deleteprocedure(procedureList);
 		assertEquals("Test that Customer arraylist size is 2", 2, procedureList.size());
 		assertSame("Test that Customer is deleted", cc2, procedureList.get(1));	
 		

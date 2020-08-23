@@ -20,9 +20,9 @@ public class CustomerTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		cust1 = new Customer(1, "Dian", "223 Woodlands Street 11", "dian@gmail.com");
-		cust2 = new Customer(2, "Li Ying", "550 Bedok View", "LiYing@hotmail.com");
-		cust3 = new Customer(3, "Pravin", "123 Jurong West", "pravin@yahoo.com");
+		cust1 = new Customer(1, "Dian", "223 Woodlands Street 11", "dian@gmail.com", 3);
+		cust2 = new Customer(2, "Li Ying", "550 Bedok View", "LiYing@hotmail.com", 4);
+		cust3 = new Customer(3, "Pravin", "123 Jurong West", "pravin@yahoo.com", 5);
 
 		CustomerList= new ArrayList<Customer>();
 	}
@@ -80,19 +80,19 @@ public class CustomerTest {
 		
 		//Given an empty list, after adding 1 item, the size of the list is 1 - normal
 		//The item just added is as same as the first item of the list
-		CustomerMain.removeCustomer(CustomerList, cust1);		
+		CustomerMain.removeCustomer(CustomerList);		
 		assertEquals("Test that Customer arraylist size is 1", 1, CustomerList.size());
 		assertSame("Test that Customer is deleted", cust1, CustomerList.get(0));
 		
 		//Add another item. test The size of the list is 2? - normal
 		//The item just added is as same as the second item of the list
-		CustomerMain.removeCustomer(CustomerList, cust2);
+		CustomerMain.removeCustomer(CustomerList);
 		assertEquals("Test that Customer arraylist size is 2", 2, CustomerList.size());
 		assertSame("Test that Customer is deleted", cust2, CustomerList.get(1));	
 		
 		//Add another item. test The size of the list is 3? - normal
 		//The item just added is as same as the second item of the list
-		CustomerMain.removeCustomer(CustomerList, cust3);
+		CustomerMain.removeCustomer(CustomerList);
 		assertEquals("Test that Customer arraylist size is 3", 3, CustomerList.size());
 		assertSame("Test that Customer is deleted", cust3, CustomerList.get(2));	
 	}
