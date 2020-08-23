@@ -14,9 +14,9 @@ public class Proceduretest {
 	@Before
 	public void setUp() throws Exception {
 		cc1 = new Procedure(1, "refund",
-				"Step 1: Verify product returns request, Step 2: Verify customer's credentials and order information, Step 3: Process refund by reqward points");
+				"Step 1: Verify product returns request, Step 2: Verify customer's credentials and order information, Step 3: Process refund by reqward points", "goodjob");
 		cc2 = new Procedure(2, "exchange",
-				"Step 1: Verify product exchange request, Step 2: Verify customer's credentials and order information, Step 3: exchange product");
+				"Step 1: Verify product exchange request, Step 2: Verify customer's credentials and order information, Step 3: exchange product", "completed");
 		//ArrayList<Procedure> procedureList = new ArrayList<Procedure>();
 		procedureList = new ArrayList<Procedure>();
 	}
