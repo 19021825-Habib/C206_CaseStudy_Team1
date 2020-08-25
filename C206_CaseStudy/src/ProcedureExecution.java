@@ -33,8 +33,8 @@ public class ProcedureExecution {
 				// Delete item
 				deleteprocedure(procedureList);
 
-			} else {
-				System.out.println("Invalid option");
+			} else if (option == 4) {
+				updateremark(procedureList);
 			}
 		}
 	}
@@ -47,7 +47,7 @@ public class ProcedureExecution {
 		System.out.println("1. View all procedure");
 		System.out.println("2. add procedure");
 		System.out.println("3. delete procedure");
-		System.out.println("4. Quit");
+		System.out.println("4. Update procedure");
 
 	}
 

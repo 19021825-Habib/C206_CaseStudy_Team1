@@ -16,7 +16,7 @@ public Procedure(int procedure_id, String procedure_name, String procedure_descr
 	this.comment = comment;
 }
 
-//test
+//testtest
 public int getProcedure_id() {
 	return Procedure_id;
 }
